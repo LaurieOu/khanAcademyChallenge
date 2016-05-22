@@ -26,6 +26,10 @@ textEditor.prototype.checkForVariableInForLoop = function(node){
 };
 
 textEditor.prototype.traverse = function(node) {
+  if(node === undefined){
+    $(".display-errors-box").text("Unexpected Token: set conditions for your statement");
+  }
+
   var nodeBody = node["body"];
 
   for(var i = 0; i < nodeBody.length; i++){
@@ -53,11 +57,17 @@ textEditor.prototype.traverse = function(node) {
 
 function displayResults() {
   var code = editor.getValue();
-  var node = esprima.parse(code);
-
   var newEditor = new textEditor();
-  newEditor.traverse(node);
+  $(".display-errors-box").text("");
 
+  try {
+    var node = esprima.parse(code);
+  }
+  catch(err){
+    $(".display-errors-box").text(err.description);
+  }
+  finally {
+    newEditor.traverse(node);
     if(newEditor.variableDeclaration === true && newEditor.forLoop === true){
       $(".for-loop-and-variable").css("background-color", "green");
     } else {
@@ -75,4 +85,6 @@ function displayResults() {
     }else {
       $(".if-inside-for").css("background-color", "red");
     }
+  }
+
 }
