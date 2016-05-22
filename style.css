@@ -24,8 +24,8 @@ span, section, input[type="text"] {
 
 #editor {
   float: left;
-  height: 50%;
-  width: 50%;
+  height: 320px;
+  width: 607px;
   position: absolute;
   top: 145px;
   right: 0;
@@ -47,17 +47,17 @@ span, section, input[type="text"] {
   top: 15px;
 }
 
-ul{
+.list-div{
+  display: inline-block;
   position: absolute;
-  float: right;
   top: 135px;
-  right: 205px;
-
+  left: 670px;
 }
+
 li{
   background-color: red;
   list-style-type: none;
   padding: 5px;
   margin: 10px;
-  height: 5%;
+  height: 30px;
 }
