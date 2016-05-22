@@ -27,7 +27,7 @@ textEditor.prototype.checkForVariableInForLoop = function(node){
 
 textEditor.prototype.traverse = function(node) {
   if(node === undefined){
-    $(".display-errors-box").text("Unexpected Token: set conditions for your statement");
+    $(".display-errors-box").text("Unexpected Token: set conditions for your statement or missing block");
   }
 
   var nodeBody = node["body"];
