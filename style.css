@@ -1,0 +1,55 @@
+html, body, nav,
+em, span, main, img, form, button,
+header, footer, figure, a, strong,
+span, section, input[type="text"] {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  text-decoration: inherit;
+  background: transparent;
+  height: 100%;
+}
+
+.navbar{
+  height: 20px;
+}
+
+.editor-text{
+  position: absolute;
+  left: 70px;
+  top: 50px;
+
+}
+
+#editor {
+  float: left;
+  height: 50%;
+  width: 50%;
+  position: absolute;
+  top: 145px;
+  right: 0;
+  bottom: 0;
+  left: 70px;
+}
+
+.results-text {
+  position: absolute;
+  left: 650px;
+  top: 15px;
+}
+
+ul{
+  position: absolute;
+  float: right;
+  top: 135px;
+  right: 205px;
+
+}
+li{
+  background-color: red;
+  list-style-type: none;
+  padding: 5px;
+  margin: 10px;
+  height: 5%;
+}

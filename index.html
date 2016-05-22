@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <script src="node_modules/esprima/esprima.js"></script>
+    <script src="https://cdn.rawgit.com/jquery/esprima/2.7.2/esprima.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <script src="main.js"></script>
+
+</script>
+
+
+  </head>
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+          <a class="navbar-brand" href="#">Laurie Academy</a>
+    </nav><br><br>
+
+    <section>
+      <div class="editor-text">
+        <h2>Editor</h2>
+        <p>Type your answer below</p>
+      </div><br>
+        <div id="editor"></div>
+
+      <div class="editor-text">
+        <h2 class="results-text">Results</h2>
+      </div><br>
+      <ul>
+        <li class="for-loop-and-variable">You used a for loop and declared a variable</li><br>
+        <li class="while-and-if">You didn't use a while loop and if statement</li><br>
+        <li class="if-inside-for">You used an if statement inside a for loop</li><br>
+      </ul>
+    </section><br>
+
+    <input type="button" value="Submit" onclick="displayResults()"/>
+
+
+
+    <script src="http://d1n0x3qji82z53.cloudfront.net/src-min-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+        var editor = ace.edit("editor");
+        editor.setTheme("ace/theme/idle_fingers");
+        editor.getSession().setMode("ace/mode/javascript");
+    </script>
+
+  </body>
+</html>
