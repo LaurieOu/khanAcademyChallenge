@@ -9,7 +9,7 @@ function textEditor(){
 }
 
 textEditor.prototype.checkForIfStatementInForLoop = function(node){
-  nodeBody = node["body"]["body"];
+  var nodeBody = node["body"]["body"];
 
   for(var j = 0; j < nodeBody.length; j++){
     if(nodeBody[j]["type"] === "IfStatement"){
@@ -26,30 +26,25 @@ textEditor.prototype.checkForVariableInForLoop = function(node){
 };
 
 textEditor.prototype.traverse = function(node) {
-  nodeBody = node["body"];
-  console.log(nodeBody);
+  var nodeBody = node["body"];
 
   for(var i = 0; i < nodeBody.length; i++){
-    currentNode = nodeBody[i];
-    console.log(i);
-    console.log(currentNode);
+    var currentNode = nodeBody[i];
+    var type = currentNode["type"];
 
-    if (currentNode["type"] === "VariableDeclaration"){
+    if (type === "VariableDeclaration"){
       this.variableDeclaration = true;
-    } else if (currentNode["type"] === "ForStatement"){
+    } else if (type === "ForStatement"){
       this.forLoop = true;
       this.checkForVariableInForLoop(currentNode);
       this.checkForIfStatementInForLoop(currentNode);
-    } else if(currentNode["type"] === "WhileStatement"){
+    } else if(type === "WhileStatement"){
           this.whileLoop = true;
-    } else if (currentNode["type"] === "IfStatement") {
+    } else if (type === "IfStatement") {
       this.ifStatement = true;
-        // if(currentNode["consequent"]["body"].length !== 0){
-          this.traverse(currentNode["consequent"]);
-        // }
+      this.traverse(currentNode["consequent"]);
     }
 
-    // if(currentNode["body"] !== undefined && currentNode["body"]["body"].length !== 0){
     if(currentNode["body"] !== undefined){
       this.traverse(currentNode);
     }
@@ -62,7 +57,6 @@ function displayResults() {
 
   var newEditor = new textEditor();
   newEditor.traverse(node);
-  console.log(newEditor);
 
     if(newEditor.variableDeclaration === true && newEditor.forLoop === true){
       $(".for-loop-and-variable").css("background-color", "green");
